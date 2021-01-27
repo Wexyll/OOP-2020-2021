@@ -20,6 +20,12 @@ public class Main
         System.out.println(misty);
         System.out.println(topCat);
 
+        Cat ginger = new Cat("Ginger");
+
+        while(ginger.GetLives()!=0){
+            ginger.Kill();
+        }
+
         // What will get printed out??
 
         // 1. topcat, Garfield

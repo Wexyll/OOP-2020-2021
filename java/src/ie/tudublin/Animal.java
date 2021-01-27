@@ -24,4 +24,7 @@ public class Animal
     {
         this.name = name;
     }
+    public Animal(Int NumLives){
+        this.NumLives = NumLives;
+    }
 }
