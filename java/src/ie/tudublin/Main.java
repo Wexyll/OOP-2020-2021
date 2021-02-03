@@ -44,10 +44,15 @@ public class Main
         String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new HelloProcessing2());
     }
+    public void BugZap()
+    {
+        String[] a= {"MAIN"};
+        processing.core.PApplet.runSketch(a, new BugZap());
+    }
 
     public static void main(String[] args)
     {
         Main main = new Main();
-        main.helloProcessing2();
+        main.BugZap();
     }
 } 
