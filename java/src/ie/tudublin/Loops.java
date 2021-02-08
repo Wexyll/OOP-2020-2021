@@ -23,16 +23,42 @@ public class Loops extends PApplet {
     }
 
     public void setup() {
-        colorMode(HSB);
+        colorMode(HSB); //hue saturation and brightness
     }
 
     public void draw() {
         background(0);
+        noStroke();
         switch (mode)
         {
             case 0:
-                ellipse(cx, cy, 100, 100);
+                if(mouseX < cx){
+                    fill(50,255,200);
+                    rect(0, 0, cx, height);
+                } //cx is wdith/2
+                else{
+                    fill(50,255,200);
+                    rect(cx, 0, cx, height);
+                }
                 break;
+            case 1:
+                if(mouseX < cx && mouseY < cy){
+                    fill(120, 175, 100);
+                    rect(0,0,cx, cy);
+                }
+                else if(mouseX > cx && mouseY < cy) {
+                    fill(120,175,100);
+                    rect(cx, 0, cx, cy);
+                }
+                if(mouseY > cy && mouseX < cx){
+                    fill(120,175,100);
+                    rect(0, 250, cx, cy);
+                }
+                else if(mouseY > cy && mouseX > cx){
+                    fill(120,175,100);
+                    rect(250, 250, cx, cy);
+                }
+            
         }
     }
 }
