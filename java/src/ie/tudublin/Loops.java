@@ -58,6 +58,13 @@ public class Loops extends PApplet {
                     fill(120,175,100);
                     rect(250, 250, cx, cy);
                 }
+            case 2:
+            int numSquares = 10;
+                float w = width/(float)numSquares, h = height/(float)numSquares, colour=255/(float)numSquares;
+                for(int i=0; i<numSquares;i++){
+                    fill(i*colour,255,255);
+                    rect(w*i,h*i,w,h);
+                }
             
         }
     }
