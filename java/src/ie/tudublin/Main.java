@@ -67,9 +67,14 @@ public class Main
         String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Life());
     }
+    public void whilePrac2()
+    {
+        String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new WhilePrac2());
+    }
     public static void main(String[] args)
     {
         Main main = new Main();
-        main.life();
+        main.whilePrac2();
     }
 } 
