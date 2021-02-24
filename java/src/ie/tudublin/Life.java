@@ -8,6 +8,7 @@ public class Life extends PApplet {
     float cellSize;
     boolean[][] board = new boolean[size][size];
     boolean[][] next = new boolean[size][size];
+    boolean pause = false;
 
     public int countNeighbours(int row, int col)
     {
@@ -169,6 +170,7 @@ public class Life extends PApplet {
     public void setup() {
         colorMode(RGB);
         randomize();
+        frameRate(2);
         
         /*
         board[0][1] = true;
@@ -185,9 +187,22 @@ public class Life extends PApplet {
     private void updateBoard()
     {
         // Put code here to apply the rules!!
-
-        
-        // Swap board and next
+        for (int x = 0; x < size; x++) {
+            for (int y = 0; y < size; y++) {
+                int n = countNeighbours(x, y);
+                if(board[x][y] == true && (n == 2 || n == 3)) {
+                    next[x][y] = true;
+                }else {
+                    next[x][y] = false;
+                }
+                
+                if(board[x][y] == false && n == 3){
+                    next[x][y] = true;
+                }else {
+                    next[x][y] = false;
+                }
+            }
+        }
         boolean[][] temp = board;
         board = next;
         next = temp;
@@ -200,7 +215,7 @@ public class Life extends PApplet {
 
     public void draw() {
         background(0);
-        drawBoard(board);        
+        drawBoard(board);  
         updateBoard();
     }
 }
