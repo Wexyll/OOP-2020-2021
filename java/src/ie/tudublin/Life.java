@@ -186,27 +186,36 @@ public class Life extends PApplet {
 
     private void updateBoard()
     {
-        // Put code here to apply the rules!!
-        for (int x = 0; x < size; x++) {
-            for (int y = 0; y < size; y++) {
-                int n = countNeighbours(x, y);
-                if(board[x][y] == true && (n == 2 || n == 3)) {
-                    next[x][y] = true;
-                }else {
-                    next[x][y] = false;
+        for(int row = 0; row < size; row++){
+            for(int col = 0; col < size; col++){
+                //cell is alive. this works as board only exists if alive
+                if(board[row][col]){
+                    if(countNeighbours(row, col) == 2 || countNeighbours(row, col) == 3 )
+                    {
+                        next[row][col] = true;
+                    } //if alive next becomes true
+                    else
+                    {
+                        next[row][col] = false;
+                    } //else it becomes false
                 }
-                
-                if(board[x][y] == false && n == 3){
-                    next[x][y] = true;
-                }else {
-                    next[x][y] = false;
+                else{
+                    if(countNeighbours(row, col) == 3 )
+                    {
+                        next[row][col] = true;
+                    } //if it's alive and has 3 then it's true
+                    else
+                    {
+                        next[row][col] = false;
+                    }
                 }
             }
         }
+        // Swap board and next
         boolean[][] temp = board;
         board = next;
         next = temp;
-    }
+        }
 
     public void mouseDragged()
     {
